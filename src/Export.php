@@ -20,7 +20,7 @@ class Export
     /*
      * @var array
      */
-    private $heading = [];
+    protected $heading = [];
 
     /**
      * @var string

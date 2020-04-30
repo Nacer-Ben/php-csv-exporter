@@ -25,10 +25,9 @@ class ExportFromQueryBuilder extends Export implements ExporterContract
     public function set(): Generator
     {
         $this->openOutputStream();
-
+        fputcsv($this->file, $this->heading, $this->delimiter);
         foreach ($this->model->get() as $data) {
             $line = $this->getLine($data, $this->columns);
-
             yield fputcsv($this->file, $line, $this->delimiter);
         }
     }

@@ -14,14 +14,20 @@ trait ExportGenerator
     protected function getLine($data, $columns)
     {
         $line = [];
-
         foreach ($columns as $k => $key) {
             if (is_array($key)) {
-                $value = $this->getNestedData($data, $key, $k);
-                array_push($line, $value);
+                foreach ($key as $kk => $item) {
+                    if (is_array($data)) {
+                        $result = isset($data[$k][$item]) ? $data[$k][$item] : '';
+                        array_push($lines, $result);
+                    } else {
+                        $result = $data->{$k}->{$item};
+                        array_push($lines, $result);
+                    }
+                }
             } else {
                 $value = is_array($data) ? $data[$key] : $data->{$key};
-                array_push($line, $value);
+                array_push($lines, $value);
             }
         }
 
