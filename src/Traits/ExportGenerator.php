@@ -13,7 +13,7 @@ trait ExportGenerator
      */
     protected function getLine($data, $columns)
     {
-        $line = [];
+        $lines = [];
         foreach ($columns as $k => $key) {
             if (is_array($key)) {
                 foreach ($key as $kk => $item) {
@@ -31,7 +31,7 @@ trait ExportGenerator
             }
         }
 
-        return $line;
+        return $lines;
     }
 
     /**
