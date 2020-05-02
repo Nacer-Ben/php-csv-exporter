@@ -26,7 +26,11 @@ trait ExportGenerator
                     }
                 }
             } else {
-                $value = is_array($data) ? $data[$key] : $data->{$key};
+                if($key == 'date') {
+                    $value = is_array($data) ? $data[$key] : $data->{$key}->format('d-m-Y');
+                } else {
+                    $value = is_array($data) ? $data[$key] : $data->{$key};
+                }
                 array_push($lines, $value);
             }
         }
