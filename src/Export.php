@@ -32,7 +32,7 @@ class Export
      */
     private $contentTypes = [
         'csv' => 'application/csv',
-        'xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        'xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; charset=utf-8'
     ];
 
     /*
